@@ -1,7 +1,5 @@
 import {JetView, plugins} from "webix-jet";
 
-
-
 export default class TopView extends JetView{
 	config(){
 		var header = {
@@ -13,8 +11,9 @@ export default class TopView extends JetView{
 			width:180, layout:"y", select:true,
 			template:"<span class='webix_icon fa-#icon#'></span> #value# ",
 			data:[
-				{ value:"DashBoard", id:"start", icon:"envelope-o" },
-				{ value:"Data",		 id:"data",  icon:"briefcase" }
+				{ value:"Contacts", id:"contacts", icon:"address-book" },
+				{ value:"Data",		id:"data",     icon:"table" },
+				{ value:"Setting",  id:"setting",  icon:"language" }
 			]
 		};
 

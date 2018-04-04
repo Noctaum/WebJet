@@ -103,3 +103,11 @@
 .status_good{
 	color:#ddd;
 }
+
+.app-top-panel{
+	text-align: center;
+	background-color: #34495e;
+	color: white;
+	padding-top: 10px;
+
+}
