@@ -1,40 +1,46 @@
 import {JetView, plugins} from "webix-jet";
+import countrTable from "views/countryTable";
+import statusTable from "views/statusTable";
 
 export default class DataView extends JetView{
 	config(){
-		
 		var header = {
 			type:"header", template:"Data", css:"app-top-panel"
 		};
 
-		var menu = {
-			view:"menu", id:"data:menu", 
-			width:180, layout:"y", select:true,
-			template:"<span class='webix_icon fa-#icon#'></span> #value# ",
-			data:[
-				{ value:"Countries", id:"countries", icon:"globe" },
-				{ value:"Statuses",  id:"statuses",  icon:"book" },
-			]
+		{  
+		 var menu = {cols:[
+		    {
+		    view:"list", gravity:1, select:true,
+		    on:{
+	            onAfterSelect:function(id){ 
+	              this.$scope.$$(id).show();
+	            }
+	        },
+        	data: [
+		        { value:"countries", id:"countries", icon:"globe" },
+				{ value:"statuses",  id:"statuses",  icon:"book" },
+		      ]
+		    },    
+		    {   
+		    	gravity:4,
+		        cells:[
+		          	{id:"countries", $subview:countrTable},  
+		          	{id:"statuses", $subview:statusTable}                    
+		      
+		        ]
+		     }
+		   ]
 		};
 
 		var ui = {
-			type:"line", rows:[header,{cols:[
-				{ type:"clean", css:"app-left-panel",
-					margin:20, rows: [menu ]},
-				{ rows:[ { height:10}, 
-					{ type:"clean", css:"app-right-panel", padding:4, rows:[
-						{ $subview:true } 
-					]}
-				]}
-			]}]
-		};
-
+			type:"line", rows:[header,{cols:[menu]}
+			]};
 
 		return ui;
 	}
-
+}
 	init(){
-		this.use(plugins.Menu, "data:menu");
 	}
 }
 
