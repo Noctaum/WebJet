@@ -6,4 +6,12 @@ export default class statusData extends data{
 		//view.queryView({ view:"datatable"}).parse(statuses);
 		view.queryView({ view:"datatable"}).sync(statuses);
 	}
+	add(){
+		statuses.add({value:"New Status", Icon:"Icon"})
+	}
+	dell(){ 
+		var one = this.table.getSelectedId();
+		if(one) statuses.remove(one);
+	}
 }
+

@@ -9,7 +9,7 @@ export default class DataView extends JetView{
 		let addBut = { 
 			view:"button",
 			label:_("Add new"), 
-			click: () => this.$$("contsctsList").add({Name:"New contact", Email:"new@gmail.com"})
+			click: () => contacts.add({Name:"New contact", Email:"new@gmail.com"})
 
 		};
 
@@ -18,7 +18,7 @@ export default class DataView extends JetView{
 			label:_("Remove"), 
 			click: () => {
 				let id = this.$$("contsctsList").getSelectedId();
-				if(id) this.$$("contsctsList").remove(id);
+				if(id) contacts.remove(id);
 			}
 
 		};

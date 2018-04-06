@@ -18,17 +18,14 @@ export default class DataTable extends JetView{
 			view:"button",
 			gravity:1, 
 			label:_("Add new"), 
-			click: () => this.table.add({})
+			click:() => this.add()
 		};
 
 		let delBut = {
 			gravity:1, 
 			view:"button", 
 			value:_("Delete"), 
-			click: () => {
-				let id = this.table.getSelectedId();
-				if(id) this.table.remove(id);
-			}
+			click:() => this.dell()
 		};
 
 		return {rows:[table, addBut, delBut]};

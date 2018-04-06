@@ -10,5 +10,6 @@ export const countries = new webix.DataCollection({
 		{"id":2,"value":"Canada"},
 		{"id":3,"value":"Italy"}
 	],
-	save:"rest->http://localhost:8096/api/v1/countries"
+	url:"http://localhost:8096/api/v1/countries/",
+	save:"rest->http://localhost:8096/api/v1/countries/"
 });
