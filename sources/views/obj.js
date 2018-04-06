@@ -2,7 +2,7 @@ import {JetView} from "webix-jet";
 
 export default class DataTable extends JetView{
 	config(){
-		 
+
 		const _ = this.app.getService("locale")._;
 		
 		let table = { 
@@ -15,11 +15,11 @@ export default class DataTable extends JetView{
 		};
 
 		let addBut = { 
-	   	 	view:"button",
-	   	 	gravity:1, 
-	   	 	label:_("Add new"), 
+			view:"button",
+			gravity:1, 
+			label:_("Add new"), 
 			click: () => this.table.add({})
-   		};
+		};
 
 		let delBut = {
 			gravity:1, 
@@ -29,9 +29,9 @@ export default class DataTable extends JetView{
 				let id = this.table.getSelectedId();
 				if(id) this.table.remove(id);
 			}
-   		}
+		};
 
-   		return {rows:[table, addBut, delBut]}
+		return {rows:[table, addBut, delBut]};
 	}
 	
 	init(){

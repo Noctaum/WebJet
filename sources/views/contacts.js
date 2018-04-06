@@ -7,11 +7,11 @@ export default class DataView extends JetView{
 		const _ = this.app.getService("locale")._;
 
 		let addBut = { 
-	   	 	view:"button",
-	   	 	label:_("Add new"), 
+			view:"button",
+			label:_("Add new"), 
 			click: () => this.$$("contsctsList").add({Name:"New contact", Email:"new@gmail.com"})
 
-   		};
+		};
 
 		let list = { 
 			rows:[
@@ -36,7 +36,7 @@ export default class DataView extends JetView{
 								onAfterSelect:(id) =>{
 									this.setParam("id", id, true);
 									let values = this.$$("contsctsList").getSelectedItem();
-			             			this.app.callEvent("onDataEditStop", [values]);
+									this.app.callEvent("onDataEditStop", [values]);
 								}	
 							}
 						},
@@ -51,23 +51,32 @@ export default class DataView extends JetView{
 		return list;
 	}
 
-	init(view){
+	init(){
 		$$("contsctsList").parse(contacts);
 		
 		
 		//let a = $$("contsctsList").data.pull;
 
-	//$$("contsctsList").select(1);
-	// }
-	// ready(){
-	// 	this.app.callEvent("onDataEditStop", [this.$$("contsctsList").getSelectedItem()]);
+		//$$("contsctsList").select(1);
+		// }
+		// ready(){
+		// 	this.app.callEvent("onDataEditStop", [this.$$("contsctsList").getSelectedItem()]);
 		this.on(this.app, "setNew", (data) => {
-			let crutch = $$("contsctsList").getSelectedId();
-			$$("contsctsList").remove(crutch);
-			$$("contsctsList").add(data);
-			$$("contsctsList").select(crutch);
-        });
+
+
+			var id = $$("contsctsList").getSelectedId();
+			$$("contsctsList").updateItem(id, data);
 			
+			// let crutch = $$("contsctsList").getSelectedId();
+			// $$("contsctsList").remove(crutch);
+			// $$("contsctsList").add(data);
+			// $$("contsctsList").select(crutch);
+		});
+			
+
+			
+
+
 	//$$("contsctsList").sync(form);
 	}
 	urlChange(){

@@ -1,5 +1,4 @@
 import {JetView} from "webix-jet";
-import {contacts} from "models/contacts";
 import {countries} from "models/countries";
 import {statuses} from "models/statuses";
 
@@ -14,13 +13,13 @@ export default class ContactForm extends JetView{
 			value:_("Save"), 
 			click: () => {
 				let values = this.$$("form").getValues();
-			    this.app.callEvent("setNew", [values]);
+				this.app.callEvent("setNew", [values]);
 
-			//this.app.getService("state").setState(values);
-				
-			 //    this.app.callEvent("putsForm", [values]);
+			//this.app.getService("state").setState(values);	
+			//this.app.callEvent("putsForm", [values]);
+
 			}
-   		}
+		};
 
 		let form = {
 			view:"form",
@@ -31,23 +30,24 @@ export default class ContactForm extends JetView{
 				{view:"combo", label:_("Status"), name:"Status", options:statuses},
 				{view:"combo", label:_("Country"), name:"Country", options:countries},
 			]
-		}
-//$$("categoriesData").sync(categories);
-		return {rows:[form,{},saveBut]};
+		};
 
+		//$$("categoriesData").sync(categories);
+
+		return {rows:[form,{},saveBut]};
 	}
 	init(){
 		this.on(this.app, "onDataEditStop", (data) => {
-	        if(data){
-	        	$$("form").setValues(data);
-	    	}
-        });
+			if(data){
+				$$("form").setValues(data);
+			}
+		});
 	}
- //        this.app.setService("state", {
- //            getState:() => { return this.state; },
- //            setState:(state) => { this.state = state; }
- //        });
-	// }
+	//this.app.setService("state", {
+	//getState:() => { return this.state; },
+	//setState:(state) => { this.state = state; }
+	//});
+	//}
 /*	
 	urlChange(view){
 		let a = contacts;
