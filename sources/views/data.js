@@ -4,8 +4,10 @@ import statusTable from "views/statusTable";
 
 export default class DataView extends JetView{
 	config(){
+		const _ = this.app.getService("locale")._;
+
 		var header = {
-			type:"header", template:"Data", css:"app-top-panel"
+			type:"header", template:_("Data"), css:"app-top-panel"
 		};
 
 		{  
@@ -18,8 +20,8 @@ export default class DataView extends JetView{
 	            }
 	        },
         	data: [
-		        { value:"countries", id:"countries", icon:"globe" },
-				{ value:"statuses",  id:"statuses",  icon:"book" },
+		        { value:_("countries"), id:"countries", icon:"globe" },
+				{ value:_("statuses"),  id:"statuses",  icon:"book" },
 		      ]
 		    },    
 		    {   

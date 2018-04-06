@@ -59,6 +59,12 @@ module.exports = function(env) {
 			})
 		);
 	}
+	
+	// devServer:{
+ //            historyApiFallback:{
+ //                index : "index.html"
+ //    	    }
+ //        }
 
 	return config;
 }
