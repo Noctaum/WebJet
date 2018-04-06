@@ -63,40 +63,20 @@ export default class DataView extends JetView{
 	}
 
 	init(){
-		this.$$("contsctsList").parse(contacts);
+		//this.$$("contsctsList").parse(contacts);
+		this.$$("contsctsList").sync(contacts);
 		
-		
-		//let a = $$("contsctsList").data.pull;
-
-		//$$("contsctsList").select(1);
-		// }
-		// ready(){
-		// 	this.app.callEvent("onDataEditStop", [this.$$("contsctsList").getSelectedItem()]);
 		this.on(this.app, "setNew", (data) => {
 
 
 			var id = this.$$("contsctsList").getSelectedId();
 			this.$$("contsctsList").updateItem(id, data);
 			
-			// let crutch = $$("contsctsList").getSelectedId();
-			// $$("contsctsList").remove(crutch);
-			// $$("contsctsList").add(data);
-			// $$("contsctsList").select(crutch);
 		});
-			
-
-			
-
-
-	//$$("contsctsList").sync(form);
 	}
 	urlChange(){
 		var id = this.getParam("id");
 		if (id) this.$$("contsctsList").select(id);
 		else this.$$("contsctsList").select(1);
-
-
-		// let changes = this.app.getService("state").getState();
-		// this.$$("contsctsList").add(changes);
 	} 
 }

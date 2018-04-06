@@ -27,8 +27,8 @@ export default class ContactForm extends JetView{
 			elements:[
 				{view:"text", label:_("User name"), name:"Name"},
 				{view:"text", label:_("Email"), name:"Email"},
-				{view:"combo", label:_("Status"), name:"Status", options:statuses},
-				{view:"combo", label:_("Country"), name:"Country", options:countries},
+				{view:"combo", label:_("Status"), name:"Status", options:{data:statuses}},
+				{view:"combo", label:_("Country"), name:"Country", options:{data:countries}},
 			]
 		};
 
