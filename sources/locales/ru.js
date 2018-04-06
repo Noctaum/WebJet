@@ -12,5 +12,6 @@ export default {
 	"Name" : "Имя",
 	"Delete" : "Удалить",
 	"countries" : "страны",
-	"statuses" : "статусы"
+	"statuses" : "статусы",
+	"Remove" : "Удалить"
 };

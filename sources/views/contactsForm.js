@@ -39,7 +39,7 @@ export default class ContactForm extends JetView{
 	init(){
 		this.on(this.app, "onDataEditStop", (data) => {
 			if(data){
-				$$("form").setValues(data);
+				this.$$("form").setValues(data);
 			}
 		});
 	}

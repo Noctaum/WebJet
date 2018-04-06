@@ -13,6 +13,16 @@ export default class DataView extends JetView{
 
 		};
 
+		let delBut = { 
+			view:"button",
+			label:_("Remove"), 
+			click: () => {
+				let id = this.$$("contsctsList").getSelectedId();
+				if(id) this.$$("contsctsList").remove(id);
+			}
+
+		};
+
 		let list = { 
 			rows:[
 				{cols:[
@@ -41,6 +51,7 @@ export default class DataView extends JetView{
 							}
 						},
 						{},
+						delBut,
 						addBut
 					]},
 					{$subview:form}
@@ -52,7 +63,7 @@ export default class DataView extends JetView{
 	}
 
 	init(){
-		$$("contsctsList").parse(contacts);
+		this.$$("contsctsList").parse(contacts);
 		
 		
 		//let a = $$("contsctsList").data.pull;
@@ -64,8 +75,8 @@ export default class DataView extends JetView{
 		this.on(this.app, "setNew", (data) => {
 
 
-			var id = $$("contsctsList").getSelectedId();
-			$$("contsctsList").updateItem(id, data);
+			var id = this.$$("contsctsList").getSelectedId();
+			this.$$("contsctsList").updateItem(id, data);
 			
 			// let crutch = $$("contsctsList").getSelectedId();
 			// $$("contsctsList").remove(crutch);

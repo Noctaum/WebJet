@@ -12,5 +12,6 @@ export default {
 	"Name" : "Name",
 	"Delete" : "Delete",
 	"countries" : "countries",
-	"statuses" : "statuses"
+	"statuses" : "statuses",
+	"Remove" : "Remove"
 };
